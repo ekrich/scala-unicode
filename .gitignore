@@ -1,2 +1,12 @@
 *.class
 *.log
+.classpath
+.project
+.cache
+.settings
+.idea
+.idea_modules
+.metals/
+.bloop/
+target/
+/bin
