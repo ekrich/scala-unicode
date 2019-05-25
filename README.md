@@ -4,8 +4,8 @@ This project contains scripts to generate data tables used to support
 platforms.
 
 The tables or sequences generated are used to support `java.lang.Character`
-and also to support `re2s` in Scala Native which is used to support
-regular expressions (regex) including `java.util.regex._`.
+and also `re2s` in Scala Native which is used to support regular
+expressions (regex) including `java.util.regex._`.
 
 Scala Native currently tracks JDK8 which uses Unicode 6.2.0. The starting
 point for this project is Unicode 7.0.0 which was somewhat arbitrarily
