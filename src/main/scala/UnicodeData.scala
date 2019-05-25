@@ -11,7 +11,7 @@ object UnicodeData {
     val allLines = readLines(path)
     val lines    = recordLines(allLines).toList
     num(lines, "Total Records")
-    
+
     // 0;   1;  2; 3;    4;     5;  6;     7;     8;  9;   10; 11;12;13;14;
     //cp;name;cat;cc;bicat;decomp;dec;digval;numval;mir;uname;com;uc;lc;tc;
     val arrays = lines
@@ -29,14 +29,9 @@ object UnicodeData {
     val compat           = tuples.filter(t => t._6.startsWith("<compat>"))
 
     num(compat, "Num <compat>")
+    show(lowers, "Lowers")
+    show(uppers, "Uppers")
 
-    val l = lowers.toList
-    val u = uppers.toList
-    //println(l.toList)
-    //println(l.size)
-    //println(u.toList)
-    //println(u.size)
-    //first.foreach(println)
     return
     //val tuples = arrays.map { c => (c(0), c(1).trim(), c(2).trim, c(3).trim) }
     // filter for 'simple case folding C + S' and greater than FFFF? && (t._1.size == 4)

@@ -28,8 +28,8 @@ object Functions {
     println(s"${comment}: ${list.size}")
   }
 
-  def show[T](list: List[T]): Unit = {
-    println(s"Num: ${list.size}")
+  def show[T](list: List[T], comment: String = "Num"): Unit = {
+    println(s"${comment}: ${list.size}")
     val uline = "-" * 20
     println(uline)
     list.foreach(println(_))
