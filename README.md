@@ -49,4 +49,28 @@ Server** above and the other documents can be found on the main site for
 The Unicode Consortium also provides *Locale* data which could be used in
 a similar manner if needed in the future.
 
+Unicode 10.0.0 has been added the the resources of the project. Applications
+take an optional argument for the Unicode version. In order to run from `sbt`
+with a command line argument see the following:
+
+```console
+sbt> run 10.0.0
+```
+
+Then select the application you want to run by the number listed.
+
+```console
+[warn] Multiple main classes detected.  Run 'show discoveredMainClasses' to see the list
+
+Multiple main classes detected, select one to run:
+
+ [1] org.ekrich.unicode.BinarySearchTest
+ [2] org.ekrich.unicode.CaseFolding
+ [3] org.ekrich.unicode.CaseFoldingTest
+ [4] org.ekrich.unicode.UnicodeData
+
+Enter number: 4
+```
+The default without an argument pass uses Unicode 7.0.0.
+
 
