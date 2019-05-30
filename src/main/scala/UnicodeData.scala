@@ -23,9 +23,11 @@ object UnicodeData {
     }
     // t._9 is lc field 13
     val (lowers, uppers) = tuples.partition(t => t._9 == "")
-    val compat           = tuples.filter(t => t._6.startsWith("<compat>"))
+    val lcompat           = lowers.filter(t => t._6.startsWith("<compat>"))
+    val ucompat           = uppers.filter(t => t._6.startsWith("<compat>"))
 
-    show(compat, "Num <compat>") // advisory
+    show(lcompat, "Lower <compat>") // advisory
+    show(ucompat, "Upper <compat>") // advisory
     num(lowers, "Lowers")
     num(uppers, "Uppers")
 
