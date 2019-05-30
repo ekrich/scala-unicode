@@ -25,17 +25,18 @@ object UnicodeData {
     val (lowers, uppers) = tuples.partition(t => t._9 == "")
     val compat           = tuples.filter(t => t._6.startsWith("<compat>"))
 
-    num(compat, "Num <compat>") // advisory
+    show(compat, "Num <compat>") // advisory
     num(lowers, "Lowers")
     num(uppers, "Uppers")
 
     // process lowers - field 0, 12
     val tuple2 = lowers.map(t => (toInt(t._1), toInt(t._8)))
-    processCase("lower", tuple2)
-
+    val lowTup4 = processCase("lower", tuple2)
+    printIndented(lowTup4, "lower")
     // process uppers - field 0, 13
     val uTuple2 = uppers.map(t => (toInt(t._1), toInt(t._9)))
-    processCase("upper", uTuple2)
+    val uppTup4 = processCase("upper", uTuple2)
+    printIndented(uppTup4, "upper")
   }
 
 }

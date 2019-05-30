@@ -39,7 +39,8 @@ object Functions {
     println(uline)
   }
 
-  def printIndented(list: List[(Int, Int, Int, Int)]) = {
+  def printIndented(list: List[(Int, Int, Int, Int)], label: String) = {
+    println(s"$label indented list")
     list.foreach(f => if (f._4 == 0) print("\n" + f) else print(f)); println
   }
 
@@ -134,7 +135,7 @@ object Functions {
                   ")\n"))
   }
 
-  def processCase(ul: String, tuple2: List[(Int, Int)]): Unit = {
+  def processCase(ul: String, tuple2: List[(Int, Int)]): List[(Int, Int, Int, Int)] = {
     num(tuple2, s"$ul tuple2")
     // tp = to point (uc or lc)
     val tuple3 = tuple2.map { case (cp, tp) => (cp, tp, cp - tp) }
@@ -150,5 +151,6 @@ object Functions {
     val compTuple4 = compressRanges(adjTuple4)
     num(compTuple4, s"$ul compress ranges")
     printOutput(ul, compTuple4)
+    compTuple4
   }
 }
