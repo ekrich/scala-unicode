@@ -2,6 +2,7 @@ package org.ekrich.unicode
 
 import Functions._
 
+// change "num" to "show" to see data and uncomment prints as needed
 object UnicodeData {
   // for non default version
   // sbt> run 10.0.0
@@ -23,22 +24,23 @@ object UnicodeData {
     }
     // t._9 is lc field 13
     val (lowers, uppers) = tuples.partition(t => t._9 == "")
-    val lcompat           = lowers.filter(t => t._6.startsWith("<compat>"))
-    val ucompat           = uppers.filter(t => t._6.startsWith("<compat>"))
+    val lcompat          = lowers.filter(t => t._6.startsWith("<compat>"))
+    val ucompat          = uppers.filter(t => t._6.startsWith("<compat>"))
 
-    show(lcompat, "Lower <compat>") // advisory
-    show(ucompat, "Upper <compat>") // advisory
+    num(lcompat, "Lower <compat>") // advisory
+    num(ucompat, "Upper <compat>") // advisory
     num(lowers, "Lowers")
     num(uppers, "Uppers")
 
     // process lowers - field 0, 12
-    val tuple2 = lowers.map(t => (toInt(t._1), toInt(t._8)))
+    val tuple2  = lowers.map(t => (toInt(t._1), toInt(t._8)))
     val lowTup4 = processCase("lower", tuple2)
-    printIndented(lowTup4, "lower")
+    //printIndented(lowTup4, "lower")
+
     // process uppers - field 0, 13
     val uTuple2 = uppers.map(t => (toInt(t._1), toInt(t._9)))
     val uppTup4 = processCase("upper", uTuple2)
-    printIndented(uppTup4, "upper")
+    //printIndented(uppTup4, "upper")
   }
 
 }
