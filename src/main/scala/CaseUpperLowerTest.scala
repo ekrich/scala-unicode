@@ -1,6 +1,6 @@
 package org.ekrich.unicode
 
-object CaseTest {
+object CaseUpperLowerTest {
 
   def main(args: Array[String]): Unit = {
     import java.lang.Character
@@ -23,9 +23,14 @@ object CaseTest {
       .map(c => (c, toLowerCase(c)))
       .foreach { case (l, u) => show(l, u) }
 
-    println("vs jdk toUppercase")
-    def p(cp: Int, n: Int, j: Int) =
-      s"${cp.toHexString}/$cp => ${n.toChar}/${n.toHexString}/$n vs ${j.toChar}/${j.toHexString}/$j"
+    println("toUpperCase cp => sn vs jdk")
+    def p(cp: Int, n: Int, j: Int) = {
+      def render(cp: Int) = s"${cp.toChar}/${cp.toHexString}/$cp"
+      val s = "same"
+      val sn = if (cp == n) s else render(n)
+      val jvm = if (cp == j) s else render(j)
+      s"${render(cp)} => ${sn} vs ${jvm}"
+    }
     val codePoints = (toInt("0000") to toInt("D7FF")).toList ::: (toInt("E000") to toInt(
       "10FFFF")).toList
     val upp = codePoints
@@ -36,10 +41,8 @@ object CaseTest {
       }
       .flatMap(x => x)
 
-    //.foldLeft(true)((l,r) => l && r)
-
     println(s"num-diffs=${upp.size}\n${upp.mkString("\n")}")
-    println("vs jdk toLowercase")
+    println("toLowerCase cp => sn vs jdk")
     val low = codePoints.toList
       .map { cp =>
         val n = toLowerCase(cp)

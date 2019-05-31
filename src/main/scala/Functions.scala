@@ -22,7 +22,8 @@ object Functions {
   def recordLines(it: Iterator[String]): Iterator[String] =
     it.filterNot(line => line.startsWith("#") || line.isEmpty())
 
-  def recordArrays(recordLines: List[String], limit: Int): List[Array[String]] =
+  def recordArrays(recordLines: List[String],
+                   limit: Int): List[Array[String]] =
     recordLines.map(x => x.split(";", limit))
 
   def toInt(hex: String): Int = Integer.parseInt(hex, 16)
@@ -135,7 +136,8 @@ object Functions {
                   ")\n"))
   }
 
-  def processCase(ul: String, tuple2: List[(Int, Int)]): List[(Int, Int, Int, Int)] = {
+  def processCase(ul: String,
+                  tuple2: List[(Int, Int)]): List[(Int, Int, Int, Int)] = {
     num(tuple2, s"$ul tuple2")
     // tp = to point (uc or lc)
     val tuple3 = tuple2.map { case (cp, tp) => (cp, tp, cp - tp) }

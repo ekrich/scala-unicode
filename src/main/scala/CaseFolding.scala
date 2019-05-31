@@ -2,6 +2,8 @@ package org.ekrich.unicode
 
 /**
  * Legacy code using casefolding for upper lower case.
+ * CaseFolding could be added as an additional library
+ * so this could bea starting point.
  * Most code is now shared.
  */
 object CaseFolding {

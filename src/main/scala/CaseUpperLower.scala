@@ -1,9 +1,11 @@
 package org.ekrich.unicode
 
 import Functions._
-
-// change "num" to "show" to see data and uncomment prints as needed
-object UnicodeData {
+/**
+ * 
+ * Note: change "num" to "show" to see data and uncomment prints as needed
+ */ 
+object CaseUpperLower {
   // for non default version
   // sbt> run 10.0.0
   def main(args: Array[String]): Unit = {
