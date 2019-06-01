@@ -22,8 +22,7 @@ object Functions {
   def recordLines(it: Iterator[String]): Iterator[String] =
     it.filterNot(line => line.startsWith("#") || line.isEmpty())
 
-  def recordArrays(recordLines: List[String],
-                   limit: Int): List[Array[String]] =
+  def recordArrays(recordLines: List[String], limit: Int): List[Array[String]] =
     recordLines.map(x => x.split(";", limit))
 
   def toInt(hex: String): Int = Integer.parseInt(hex, 16)
