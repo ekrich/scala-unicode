@@ -4,7 +4,9 @@ package org.ekrich.unicode
  * Legacy code using casefolding for upper lower case.
  * CaseFolding could be added as an additional library
  * so this could bea starting point.
- * Most code is now shared.
+ * Most code is now shared. Use "run 7.0.0" to get the
+ * same results as the first version or upper/lower
+ * case in Scala Native.
  */
 object CaseFolding {
 

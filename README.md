@@ -8,12 +8,13 @@ and also `re2s` in Scala Native which is used to support regular
 expressions (regex) including `java.util.regex._`.
 
 Scala Native currently tracks JDK8 which uses Unicode 6.2.0. The starting
-point for this project is Unicode 7.0.0 which was somewhat arbitrarily
-used for the current `uppercase/lowercase` implementation. JDK11 which is
+point for this project was Unicode 7.0.0 which was somewhat arbitrarily
+used for the first `uppercase/lowercase` implementation. JDK11 which is
 the next production release of Java tracks Unicode 10.0.0. The
 disadvantage to the newer standards is that they contain more code
 points which translates to more data and larger binary sizes. This runs
-in a detrimental direction to goal **#4** below but has all the new emojis.
+in a detrimental direction to goal **#4** below but has added
+fonts and emojis.
 
 The overall goals of this project are as follows:
 
@@ -21,7 +22,7 @@ The overall goals of this project are as follows:
 and **Scala.js**.
 2. Provide access to the Unicode database reusing code used in transforming
 the data as needed.
-3. Allow a relatively easy path to upgrade the Unicode data and regenerate
+3. Allow an easy path to upgrade the Unicode data and regenerate
 the new data needed.
 4. Assess whether the data needed for `regex` and `Character` can be shared
 to reduce the code size of **Scala Native** applications.
@@ -49,7 +50,7 @@ Server** above and the other documents can be found on the main site for
 The Unicode Consortium also provides *Locale* data which could be used in
 a similar manner if needed in the future.
 
-Unicode 10.0.0 has been added the the resources of the project. Applications
+Unicode 10.0.0 has been added to the resources of the project. Applications
 take an optional argument for the Unicode version. In order to run from `sbt`
 with a command line argument see the following:
 
@@ -71,6 +72,7 @@ Multiple main classes detected, select one to run:
 
 Enter number: 4
 ```
-The default without an argument pass uses Unicode 7.0.0.
+The default without an argument uses Unicode 6.3.0. This version was used since
+it was a minor update from JDK8's 6.2.0 whereas 7.0.0 added many new codes.
 
 

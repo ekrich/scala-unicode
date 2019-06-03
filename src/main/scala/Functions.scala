@@ -5,7 +5,7 @@ import java.io.InputStream
 
 object Functions {
 
-  def parseVersion(args: Array[String], default: String = "7.0.0"): String =
+  def parseVersion(args: Array[String], default: String = "6.3.0"): String =
     if (args.isEmpty) default else args(0)
 
   def resourcePath(version: String, filename: String): String = {
@@ -22,7 +22,8 @@ object Functions {
   def recordLines(it: Iterator[String]): Iterator[String] =
     it.filterNot(line => line.startsWith("#") || line.isEmpty())
 
-  def recordArrays(recordLines: List[String], limit: Int): List[Array[String]] =
+  def recordArrays(recordLines: List[String],
+                   limit: Int): List[Array[String]] =
     recordLines.map(x => x.split(";", limit))
 
   def toInt(hex: String): Int = Integer.parseInt(hex, 16)
