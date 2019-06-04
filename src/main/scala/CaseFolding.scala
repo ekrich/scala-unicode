@@ -3,8 +3,8 @@ package org.ekrich.unicode
 /**
  * Legacy code using casefolding for upper lower case.
  * CaseFolding could be added as an additional library
- * so this could bea starting point.
- * Most code is now shared. Use "run 7.0.0" to get the
+ * so this could be a starting point.
+ * Most code is now shared so use 7.0.0 to get the
  * same results as the first version or upper/lower
  * case in Scala Native.
  */
@@ -15,7 +15,8 @@ object CaseFolding {
   import Functions._
 
   def main(args: Array[String]): Unit = {
-    val version  = parseVersion(args)
+    val defaultArgs = if (args.isEmpty) Array("7.0.0") else args
+    val version  = parseVersion(defaultArgs)
     val path     = resourcePath(version, "CaseFolding.txt")
     val allLines = readLines(path)
     val lines    = recordLines(allLines).toList
