@@ -10,3 +10,4 @@
 .bloop/
 target/
 /bin
+/.vscode/
