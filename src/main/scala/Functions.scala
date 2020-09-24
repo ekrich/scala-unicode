@@ -5,6 +5,22 @@ import java.io.InputStream
 
 object Functions {
 
+  case class DB(cp: String,
+                name: String,
+                cat: String,
+                cc: String,
+                bicat: String,
+                decomp: String,
+                dec: String,
+                digval: String,
+                numval: String,
+                mir: String,
+                uname: String,
+                com: String,
+                uc: String,
+                lc: String,
+                tc: String)
+
   def parseVersion(args: Array[String], default: String = "6.3.0"): String =
     if (args.isEmpty) default else args(0)
 
@@ -22,8 +38,7 @@ object Functions {
   def recordLines(it: Iterator[String]): Iterator[String] =
     it.filterNot(line => line.startsWith("#") || line.isEmpty())
 
-  def recordArrays(recordLines: List[String],
-                   limit: Int): List[Array[String]] =
+  def recordArrays(recordLines: List[String], limit: Int): List[Array[String]] =
     recordLines.map(x => x.split(";", limit))
 
   def toInt(hex: String): Int = Integer.parseInt(hex, 16)
