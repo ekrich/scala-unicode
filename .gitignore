@@ -6,8 +6,11 @@
 .settings
 .idea
 .idea_modules
+
+# sbt
 target/
-/bin
+/.bsp/
+
 # Metals/VSCode
 /.bloop/
 /.metals/
