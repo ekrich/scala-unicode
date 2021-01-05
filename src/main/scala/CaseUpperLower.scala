@@ -3,7 +3,11 @@ package org.ekrich.unicode
 import Functions._
 
 /**
- *
+ * Application to create upper and lower case tables.
+ * 
+ * Web address for version 13 as an example
+ * https://www.unicode.org/Public/13.0.0/ucd/
+ * 
  * Note: change "num" to "show" to see data and uncomment prints as needed
  */
 object CaseUpperLower {

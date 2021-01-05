@@ -25,7 +25,7 @@ object Functions {
     if (args.isEmpty) default else args(0)
 
   def resourcePath(version: String, filename: String): String = {
-    val path = s"/${version}/UCD/${filename}"
+    val path = s"/${version}/ucd/${filename}"
     println(s"Path: $path")
     path
   }
