@@ -4,17 +4,22 @@ import Functions._
 
 /**
  * Application to create upper and lower case tables.
- * 
+ *
  * Web address for version 13 as an example
  * https://www.unicode.org/Public/13.0.0/ucd/
- * 
+ *
  * Note: change "num" to "show" to see data and uncomment prints as needed
  */
 object CaseUpperLower {
   // for non default version
   // sbt> run 10.0.0
+  var defaultVersion = "15.1.0"
   def main(args: Array[String]): Unit = {
-    val version  = parseVersion(args)
+    val version =
+      if (args.isEmpty)
+        defaultVersion
+      else
+        parseVersion(args)
     val path     = resourcePath(version, "UnicodeData.txt")
     val allLines = readLines(path)
     val lines    = recordLines(allLines).toList
