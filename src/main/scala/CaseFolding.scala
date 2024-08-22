@@ -16,10 +16,10 @@ object CaseFolding {
 
   def main(args: Array[String]): Unit = {
     val defaultArgs = if (args.isEmpty) Array("7.0.0") else args
-    val version  = parseVersion(defaultArgs)
-    val path     = resourcePath(version, "CaseFolding.txt")
-    val allLines = readLines(path)
-    val lines    = recordLines(allLines).toList
+    val version     = parseVersion(defaultArgs)
+    val path        = resourcePath(version, "CaseFolding.txt")
+    val allLines    = readLines(path)
+    val lines       = recordLines(allLines).toList
     num(lines, "Total Records")
 
     val arrays = recordArrays(lines, 4)
@@ -31,7 +31,7 @@ object CaseFolding {
     val fTuples = tuples.filter(t => (t._2 == "C" || t._2 == "S")).toList
     // for test cases as hex
     //println(s"All:\n${fTuples.mkString("\n")}\n")
-    val upperLower = fTuples.map(t => (toInt(t._1), toInt(t._3)))
+    val upperLower = fTuples.map(t => (fromHex(t._1), fromHex(t._3)))
     // for test cases as ints
     //println(s"All:\n${upperLower.mkString("\n")}\n")
     val pairs = upperLower.map { case (u, l) => (u, l, l - u) }

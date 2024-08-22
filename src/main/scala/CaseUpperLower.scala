@@ -70,12 +70,12 @@ object CaseUpperLower {
     num(uppers, "Uppers")
 
     // process lowers - field cp, uc
-    val lTuple2 = lowers.map(r => (toInt(r.cp), toInt(r.uc)))
+    val lTuple2 = lowers.map(r => (fromHex(r.cp), fromHex(r.uc)))
     val lowTup4 = processCase("lower", lTuple2)
     //printIndented(lowTup4, "lower")
 
     // process uppers - field cp, lc
-    val uTuple2 = uppers.map(r => (toInt(r.cp), toInt(r.lc)))
+    val uTuple2 = uppers.map(r => (fromHex(r.cp), fromHex(r.lc)))
     val uppTup4 = processCase("upper", uTuple2)
     //printIndented(uppTup4, "upper")
   }
