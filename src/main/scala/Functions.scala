@@ -32,7 +32,7 @@ object Functions {
 
   def readLines(path: String): Iterator[String] = {
     val stream: InputStream = getClass.getResourceAsStream(path)
-    scala.io.Source.fromInputStream(stream).getLines // 27268
+    scala.io.Source.fromInputStream(stream).getLines
   }
 
   def recordLines(it: Iterator[String]): Iterator[String] =
@@ -41,7 +41,9 @@ object Functions {
   def recordArrays(recordLines: List[String], limit: Int): List[Array[String]] =
     recordLines.map(x => x.split(";", limit))
 
-  def toInt(hex: String): Int = Integer.parseInt(hex, 16)
+  def fromHex(hex: String): Int = Integer.parseInt(hex, 16)
+
+  def toHex(i: Int): String = "0x" + Integer.toString(i, 16)
 
   def num[T](list: List[T], comment: String = "Num"): Unit = {
     println(s"${comment}: ${list.size}")
@@ -129,7 +131,7 @@ object Functions {
     process(tail, List(h), h).reverse
   }
 
-  def printOutput(ul: String, list: List[(Int, Int, Int, Int)]): Unit = {
+  def printUpperLowerTables(ul: String, list: List[(Int, Int, Int, Int)]): Unit = {
     println()
     println(
       list
@@ -167,7 +169,7 @@ object Functions {
     //show(zf, "diff, adj")
     val compTuple4 = compressRanges(adjTuple4)
     num(compTuple4, s"$ul compress ranges")
-    printOutput(ul, compTuple4)
+    printUpperLowerTables(ul, compTuple4)
     compTuple4
   }
 }

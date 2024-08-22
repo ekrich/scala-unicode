@@ -4,17 +4,22 @@ import Functions._
 
 /**
  * Application to create upper and lower case tables.
- * 
+ *
  * Web address for version 13 as an example
  * https://www.unicode.org/Public/13.0.0/ucd/
- * 
+ *
  * Note: change "num" to "show" to see data and uncomment prints as needed
  */
 object CaseUpperLower {
   // for non default version
   // sbt> run 10.0.0
+  var defaultVersion = "15.1.0"
   def main(args: Array[String]): Unit = {
-    val version  = parseVersion(args)
+    val version =
+      if (args.isEmpty)
+        defaultVersion
+      else
+        parseVersion(args)
     val path     = resourcePath(version, "UnicodeData.txt")
     val allLines = readLines(path)
     val lines    = recordLines(allLines).toList
@@ -65,12 +70,12 @@ object CaseUpperLower {
     num(uppers, "Uppers")
 
     // process lowers - field cp, uc
-    val lTuple2 = lowers.map(r => (toInt(r.cp), toInt(r.uc)))
+    val lTuple2 = lowers.map(r => (fromHex(r.cp), fromHex(r.uc)))
     val lowTup4 = processCase("lower", lTuple2)
     //printIndented(lowTup4, "lower")
 
     // process uppers - field cp, lc
-    val uTuple2 = uppers.map(r => (toInt(r.cp), toInt(r.lc)))
+    val uTuple2 = uppers.map(r => (fromHex(r.cp), fromHex(r.lc)))
     val uppTup4 = processCase("upper", uTuple2)
     //printIndented(uppTup4, "upper")
   }

@@ -66,13 +66,20 @@ Then select the application you want to run by the number listed.
 Multiple main classes detected, select one to run:
 
  [1] org.ekrich.unicode.BinarySearchTest
- [2] org.ekrich.unicode.CaseFolding
- [3] org.ekrich.unicode.CaseFoldingTest
- [4] org.ekrich.unicode.UnicodeData
+ [2] org.ekrich.unicode.Blocks
+ [3] org.ekrich.unicode.CaseFolding
+ [4] org.ekrich.unicode.CaseFoldingTest
+ [5] org.ekrich.unicode.CaseUpperLower
+ [6] org.ekrich.unicode.CaseUpperLowerJdk15Unicode13Test
+ [7] org.ekrich.unicode.CaseUpperLowerJdk8Unicode6Test
 
-Enter number: 4
+Enter number: 2
+
 ```
 The default without an argument uses Unicode 6.3.0. This version was used since
 it was a minor update from JDK8's 6.2.0 whereas 7.0.0 added many new codes.
 
+If you run from VSCode rather than `sbt` or some other way, the default Unicode
+version will be run. This should be updated to the latest version when
+upgrading Unicode.
 
