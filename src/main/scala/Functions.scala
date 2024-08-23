@@ -136,19 +136,19 @@ object Functions {
     println(
       list
         .map(_._1)
-        .mkString(s"private[this] lazy val ${ul}Ranges = Array[scala.Int](",
+        .mkString(s"private lazy val ${ul}Ranges = Array[scala.Int](",
                   ", ",
                   ")\n"))
     println(
       list
         .map(_._3)
-        .mkString(s"private[this] lazy val ${ul}Deltas = Array[scala.Int](",
+        .mkString(s"private lazy val ${ul}Deltas = Array[scala.Int](",
                   ", ",
                   ")\n"))
     println(
       list
         .map(_._4)
-        .mkString(s"private[this] lazy val ${ul}Steps = Array[scala.Byte](",
+        .mkString(s"private lazy val ${ul}Steps = Array[scala.Byte](",
                   ", ",
                   ")\n"))
   }

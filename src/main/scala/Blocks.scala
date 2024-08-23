@@ -33,7 +33,7 @@ object Blocks {
     val arrays = recordArrays(lines, 2)
     val recs = arrays.map { r =>
       val origName = r(1).trim()
-      val name     = origName.replace(" ", "_").toUpperCase()
+      val name     = origName.replaceAll(" |-", "_").toUpperCase()
       val lh       = r(0).split("""[.]{2}""", 2)
       Block(origName, name, fromHex(lh(0)), fromHex(lh(1)))
     }
@@ -49,6 +49,8 @@ object Blocks {
     println()
     val blocksByRecs = blocksBy(sortedRecs)
     printBlocksBy(blocksByRecs)
+    // extra space at end
+    println()
   }
 
   // This could probably use Map[String, List[String]] for Accumulator vs tuple
