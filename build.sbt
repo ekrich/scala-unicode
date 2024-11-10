@@ -7,5 +7,5 @@ scalaVersion := "2.13.15"
 publishArtifact in Compile := false
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.2.3" % Test
+  "org.scalatest" %% "scalatest" % "3.2.19" % Test
 )
