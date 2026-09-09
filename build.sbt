@@ -2,7 +2,7 @@ name := "scala-unicode"
 
 version := "0.1.0"
 
-scalaVersion := "2.13.18"
+scalaVersion := "3.9.0"
 
 (Compile / publishArtifact) := false
 
